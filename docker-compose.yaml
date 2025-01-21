@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    environment:
+      - POSTGRES_DB=interview
+      - POSTGRES_USER=application-service-account
+      - POSTGRES_PASSWORD=Pass
+      - POSTGRES_HOST=db
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    links:
+      - db:db
+    db:
+      image: postgres
+      environment:
+        - POSTGRES_DB=interview
+        - POSTGRES_USER=application-service-account
+        - POSTGRES_PASSWORD=Pass

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linear regression</title>
+</head>
+
+<body>
+  <h1>Likelihood of liking beer per age in belgian population</h1>
+  <p>
+      <div>This is our awesome algorithm determining the likelihood of a belgian individual to like beer depending on his age !</div>
+      <div>This algorithm uses extremely advanced data through years of collection and study (completely random)...</div>
+  </p>
+  <form method="get">
+    <label>
+      <span>Enter your age:</span>
+      <input type="number" name="age" min="0" max="130" step="1" value="{{ age }}">
+    </label>
+  </form>
+  {% if likelihood_of_liking_beer != None  %}
+  <p class="underline">
+    <div>The likelihood of this individual to like beer is : <b>{{ likelihood_of_liking_beer }}%</b></div>
+    {% if r2 != None %}
+    <div>This model can be trusted at {{ r2 }}% </div>
+    {% endif %}
+</p>
+  {% endif %} 
+</body>
+
+<style>
+  h1, .underline{
+    text-decoration: underline;
+  }
+</style>
+
+</html>
